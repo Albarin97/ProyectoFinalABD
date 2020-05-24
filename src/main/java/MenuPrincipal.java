@@ -201,7 +201,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
-        // TODO add your handling code here:
+        Bajas bajas = new Bajas();
+        bajas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnBajaActionPerformed
 
     private void btnCambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambioActionPerformed
@@ -248,7 +250,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     
     public void bienvenido(String lg){
-        jlUsuario.setText(lg);
+        jlUsuario.setText(lg.toUpperCase());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

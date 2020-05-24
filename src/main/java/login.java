@@ -160,7 +160,7 @@ public class login extends javax.swing.JFrame {
         MenuPrincipal mp = new MenuPrincipal();
         String con = jtfContra.getText();
         String us = jtfUsuario.getText();
-        if(us.equalsIgnoreCase("albar") && con.equals("1234")){
+        if(us.equalsIgnoreCase("a") && con.equals("a")){
             mp.setVisible(true);
         this.dispose();
         mp.bienvenido(us);
