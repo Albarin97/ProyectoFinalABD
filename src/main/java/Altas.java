@@ -149,8 +149,9 @@ public class Altas extends javax.swing.JFrame {
         jLabel4.setText("Albar's Moto Sport");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        btnRealizarAlta.setBackground(new java.awt.Color(199, 0, 57));
+        btnRealizarAlta.setBackground(new java.awt.Color(88, 24, 69));
         btnRealizarAlta.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnRealizarAlta.setForeground(new java.awt.Color(255, 255, 255));
         btnRealizarAlta.setText("Confirmar");
         btnRealizarAlta.setBorder(null);
         btnRealizarAlta.setBorderPainted(false);
@@ -173,7 +174,7 @@ public class Altas extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setBackground(new java.awt.Color(199, 0, 57));
+        btnReset.setBackground(new java.awt.Color(144, 12, 63));
         btnReset.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         btnReset.setText("Limpiar");
         btnReset.setBorder(null);
