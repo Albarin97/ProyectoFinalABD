@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -34,18 +37,17 @@ public class Altas extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jtfMarca = new javax.swing.JTextField();
         jtfModelo = new javax.swing.JTextField();
         jcbTipo = new javax.swing.JComboBox<>();
         spnPrecio = new javax.swing.JSpinner();
         spnCantidad = new javax.swing.JSpinner();
+        jcbMarca = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         btnRealizarAlta = new javax.swing.JButton();
-        btnAlta1 = new javax.swing.JButton();
+        btnMenuAlta = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(688, 424));
 
         jPanel1.setBackground(new java.awt.Color(255, 195, 0));
 
@@ -75,7 +77,17 @@ public class Altas extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Cantidad");
 
+        jtfModelo.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+
+        jcbTipo.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jcbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elige Una Opción", "Doble Proposito", "Deportiva", "Turing", "Scooter", "Naked", "Crucero", "Enduro", "Cafe Racer" }));
+
+        spnPrecio.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+
+        spnCantidad.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+
+        jcbMarca.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jcbMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elige Una Opción", "Italika", "Suzuki", "Yamaha", "Honda", "Bajaj", "Ducati", "BMW", "Kawasaki", "Harley-Davidson" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -91,7 +103,7 @@ public class Altas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jtfMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jcbMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -110,9 +122,9 @@ public class Altas extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jtfMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jcbMarca))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtfModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,15 +161,15 @@ public class Altas extends javax.swing.JFrame {
             }
         });
 
-        btnAlta1.setBackground(new java.awt.Color(199, 0, 57));
-        btnAlta1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        btnAlta1.setText("Menu");
-        btnAlta1.setBorder(null);
-        btnAlta1.setBorderPainted(false);
-        btnAlta1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAlta1.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuAlta.setBackground(new java.awt.Color(199, 0, 57));
+        btnMenuAlta.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnMenuAlta.setText("Menu");
+        btnMenuAlta.setBorder(null);
+        btnMenuAlta.setBorderPainted(false);
+        btnMenuAlta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnMenuAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlta1ActionPerformed(evt);
+                btnMenuAltaActionPerformed(evt);
             }
         });
 
@@ -188,7 +200,7 @@ public class Altas extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnAlta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMenuAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnRealizarAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -204,10 +216,10 @@ public class Altas extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRealizarAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAlta1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMenuAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -227,15 +239,28 @@ public class Altas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRealizarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarAltaActionPerformed
-        // TODO add your handling code here:
+        if(jcbMarca.getSelectedIndex()!=0 && jcbTipo.getSelectedIndex()!=0 && !jtfModelo.getText().equalsIgnoreCase("") && !spnCantidad.getValue().equals(0) && !spnPrecio.getValue().equals(0)){
+            JOptionPane.showMessageDialog(this,"Alta correcta","Aviso",JOptionPane.WARNING_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this,"Faltan Datos","Error",JOptionPane.OK_OPTION);
+        }
+        
+        
+        
     }//GEN-LAST:event_btnRealizarAltaActionPerformed
 
-    private void btnAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlta1ActionPerformed
+    private void btnMenuAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuAltaActionPerformed
+        MenuPrincipal mp = new MenuPrincipal();
+        mp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnMenuAltaActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        // TODO add your handling code here:
+        jcbMarca.setSelectedIndex(0);
+        jtfModelo.setText("");
+        jcbTipo.setSelectedIndex(0);
+        spnCantidad.setValue(0);
+        spnPrecio.setValue(0);
     }//GEN-LAST:event_btnResetActionPerformed
 
     /**
@@ -274,7 +299,7 @@ public class Altas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlta1;
+    private javax.swing.JButton btnMenuAlta;
     private javax.swing.JButton btnRealizarAlta;
     private javax.swing.JButton btnReset;
     private javax.swing.JLabel jLabel10;
@@ -286,8 +311,8 @@ public class Altas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> jcbMarca;
     private javax.swing.JComboBox<String> jcbTipo;
-    private javax.swing.JTextField jtfMarca;
     private javax.swing.JTextField jtfModelo;
     private javax.swing.JSpinner spnCantidad;
     private javax.swing.JSpinner spnPrecio;

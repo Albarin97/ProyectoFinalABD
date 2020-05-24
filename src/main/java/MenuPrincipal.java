@@ -195,7 +195,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
-        // TODO add your handling code here:
+        Altas altas = new Altas();
+        altas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
