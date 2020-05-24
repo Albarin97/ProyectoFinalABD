@@ -17,6 +17,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
     }
 
+    MenuPrincipal(login aThis, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +53,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnAlta.setText("Alta");
         btnAlta.setBorder(null);
         btnAlta.setBorderPainted(false);
+        btnAlta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAltaActionPerformed(evt);
@@ -60,6 +65,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnBaja.setText("Baja");
         btnBaja.setBorder(null);
         btnBaja.setBorderPainted(false);
+        btnBaja.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBajaActionPerformed(evt);
@@ -71,6 +77,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnCambio.setText("Cambio");
         btnCambio.setBorder(null);
         btnCambio.setBorderPainted(false);
+        btnCambio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCambio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCambioActionPerformed(evt);
@@ -82,6 +89,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnConsulta.setText("Consulta");
         btnConsulta.setBorder(null);
         btnConsulta.setBorderPainted(false);
+        btnConsulta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultaActionPerformed(evt);
@@ -93,25 +101,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(btnBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(btnCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addGap(45, 45, 45)
+                .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addGap(55, 55, 55)
+                .addComponent(btnBaja, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
+                .addComponent(btnCambio, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
+                .addComponent(btnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addGap(36, 36, 36))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(73, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(btnConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(btnCambio, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(btnBaja, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
                 .addGap(65, 65, 65))
         );
 
@@ -235,6 +243,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 new MenuPrincipal().setVisible(true);
             }
         });
+    }
+    
+    public void bienvenido(String lg){
+        jlUsuario.setText(lg);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
