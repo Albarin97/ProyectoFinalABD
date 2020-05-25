@@ -40,6 +40,7 @@ public class login extends javax.swing.JFrame {
         btnIniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
 
         jPanel2.setBackground(new java.awt.Color(255, 195, 0));
 

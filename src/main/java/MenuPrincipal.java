@@ -43,6 +43,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu");
 
         jPanel1.setBackground(new java.awt.Color(255, 195, 0));
 
@@ -207,11 +208,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBajaActionPerformed
 
     private void btnCambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambioActionPerformed
-        // TODO add your handling code here:
+        Bajas bajas = new Bajas();
+        bajas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCambioActionPerformed
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
-        // TODO add your handling code here:
+        Consulta consul = new Consulta();
+        consul.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnConsultaActionPerformed
 
     /**

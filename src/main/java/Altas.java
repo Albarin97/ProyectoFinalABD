@@ -48,6 +48,7 @@ public class Altas extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Altas");
 
         jPanel1.setBackground(new java.awt.Color(255, 195, 0));
 

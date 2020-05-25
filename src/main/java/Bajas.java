@@ -52,6 +52,7 @@ public class Bajas extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Bajas y Cambios");
 
         jPanel1.setBackground(new java.awt.Color(255, 195, 0));
 

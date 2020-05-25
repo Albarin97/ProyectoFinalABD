@@ -1,0 +1,16 @@
+-tabla productos
+idProducto
+marca
+modelo
+tipo
+precio
+cantidad
+
+-tabla ventas
+idVenta
+idProducto
+cliente
+cantidad
+coste
+telefono
+direccion
