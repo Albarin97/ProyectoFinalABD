@@ -50,7 +50,7 @@ public class Consulta2 extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Realiza una Consulta de los Registros Del Sistema");
+        jLabel5.setText("Realiza una Consulta de las Ventas");
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -79,7 +79,7 @@ public class Consulta2 extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Marca", "Modelo", "Tipo", "Precio", "Cantidad"
+                "ID Venta", "Marca", "Modelo", "Tipo", "Cliente", "Cantidad Comprada"
             }
         ));
         jScrollPane2.setViewportView(jTable1);

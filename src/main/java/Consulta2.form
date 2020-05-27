@@ -114,7 +114,7 @@
               <Font name="Century Gothic" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Realiza una Consulta de los Registros Del Sistema"/>
+            <Property name="text" type="java.lang.String" value="Realiza una Consulta de las Ventas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
@@ -192,12 +192,12 @@
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="6" rowCount="1">
-                        <Column editable="true" title="ID" type="java.lang.Object"/>
+                        <Column editable="true" title="ID Venta" type="java.lang.Object"/>
                         <Column editable="true" title="Marca" type="java.lang.Object"/>
                         <Column editable="true" title="Modelo" type="java.lang.Object"/>
                         <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                        <Column editable="true" title="Precio" type="java.lang.Object"/>
-                        <Column editable="true" title="Cantidad" type="java.lang.Object"/>
+                        <Column editable="true" title="Cliente" type="java.lang.Object"/>
+                        <Column editable="true" title="Cantidad Comprada" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
