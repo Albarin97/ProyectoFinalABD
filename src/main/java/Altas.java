@@ -249,7 +249,14 @@ public class Altas extends javax.swing.JFrame {
 
     private void btnRealizarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarAltaActionPerformed
         if(jcbMarca.getSelectedIndex()!=0 && jcbTipo.getSelectedIndex()!=0 && !jtfModelo.getText().equalsIgnoreCase("") && !spnCantidad.getValue().equals(0) && !spnPrecio.getValue().equals(0)){
-            JOptionPane.showMessageDialog(this,"Alta correcta","Aviso",JOptionPane.WARNING_MESSAGE);
+            marca = jcbMarca.getSelectedItem()+"";
+            tipo = jcbTipo.getSelectedItem()+"";
+            modelo = jtfModelo.getText();
+            cantidad = Integer.parseInt(spnCantidad.getValue()+"");
+            precio = Integer.parseInt(spnPrecio.getValue()+"");
+            
+            
+            JOptionPane.showMessageDialog(this,"Alta Realizada","Aviso",JOptionPane.WARNING_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(this,"Faltan Datos","Error",JOptionPane.OK_OPTION);
         }
