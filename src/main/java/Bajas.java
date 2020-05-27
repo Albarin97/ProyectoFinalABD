@@ -293,6 +293,7 @@ public class Bajas extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRealizarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarBajaActionPerformed

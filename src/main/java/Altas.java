@@ -12,6 +12,11 @@ import javax.swing.JOptionPane;
  * @author albar
  */
 public class Altas extends javax.swing.JFrame {
+    
+    //Variables
+    
+    String marca, modelo, tipo;
+    int precio, cantidad;
 
     /**
      * Creates new form Altas
@@ -49,6 +54,7 @@ public class Altas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Altas");
+        setLocation(new java.awt.Point(0, 0));
 
         jPanel1.setBackground(new java.awt.Color(255, 195, 0));
 
@@ -238,6 +244,7 @@ public class Altas extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRealizarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarAltaActionPerformed
