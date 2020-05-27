@@ -302,13 +302,14 @@ public class Bajas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRealizarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarBajaActionPerformed
-
-        if(!jtfID.getText().equalsIgnoreCase("") && jcbMarca.getSelectedIndex()!=0){
+        
+        if(!jtfID.getText().equalsIgnoreCase("") ){
+            
+            id = jtfID.getText();
+            
             JOptionPane.showMessageDialog(this,"Baja correcta","Aviso",JOptionPane.WARNING_MESSAGE);
-        }else if(jtfID.getText().equalsIgnoreCase("")){
-            JOptionPane.showMessageDialog(this,"Debes llenar el campo ID","Error",JOptionPane.OK_OPTION);
         }else{
-            JOptionPane.showMessageDialog(this,"Ese producto ya no esta disponible o nunca lo estuvo","Error",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this,"Debes llenar el campo ID","Error",JOptionPane.OK_OPTION);
         }
 
     }//GEN-LAST:event_btnRealizarBajaActionPerformed
@@ -329,11 +330,24 @@ public class Bajas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnBajaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaBuscarActionPerformed
-        jcbMarca.setSelectedIndex(1);
+        if(!jtfID.getText().equalsIgnoreCase("") ){
+            
+            id = jtfID.getText();
+            
+            JOptionPane.showMessageDialog(this,"Buscando...","Aviso",JOptionPane.WARNING_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this,"Debes llenar el campo ID","Error",JOptionPane.OK_OPTION);
+        }
     }//GEN-LAST:event_btnBajaBuscarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        id = jtfID.getText();
+        if(!id.equalsIgnoreCase("") && jcbMarca.getSelectedIndex()!=0 && jcbTipo.getSelectedIndex()!=0 && !jtfModelo.getText().equalsIgnoreCase("") && !spnCantidad.getValue().equals(0) && !spnPrecio.getValue().equals(0)){
+            
+            JOptionPane.showMessageDialog(this,"Editando...","Aviso",JOptionPane.WARNING_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this,"Faltan campos por llenar","Error",JOptionPane.OK_OPTION);
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
