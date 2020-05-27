@@ -9,6 +9,10 @@
  * @author albar
  */
 public class Consulta2 extends javax.swing.JFrame {
+    
+    //Variables
+    
+    String id;
 
     /**
      * Creates new form Consulta

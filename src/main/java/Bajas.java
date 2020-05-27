@@ -12,6 +12,11 @@ import javax.swing.JOptionPane;
  * @author albar
  */
 public class Bajas extends javax.swing.JFrame {
+    
+    //Variables
+    
+    String id, marca, modelo, tipo;
+    int precio, cantidad;
 
     /**
      * Creates new form Bajas
