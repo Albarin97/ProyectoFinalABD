@@ -1,5 +1,9 @@
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -205,6 +209,32 @@ public class login extends javax.swing.JFrame {
                 
             }
         });
+        String url = "jdbc:postgresql://localhost:5432/AMS";
+        String usuario = "postgres";
+        String contraseña = "1234";
+        try{
+            Class.forName("org.postgresql.Driver");
+            Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
+            java.sql.Statement st = conexion.createStatement();
+            String sql = "SELECT * FROM productos;";
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                String id = rs.getString("idproductos");
+                String marca = rs.getString("marca");
+                String modelo = rs.getString("modelo");
+                String tipo = rs.getString("tipo");
+                String precio = rs.getString("precio");
+                String cantidad = rs.getString("cantidad");
+                System.out.println(id+marca+modelo+tipo+precio+cantidad);
+            }
+            rs.close();
+            st.close();
+            conexion.close();
+
+        }catch(Exception e){
+            System.out.println("Error Conexion: "+e);
+        }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
