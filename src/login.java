@@ -3,8 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-
-
+import Conexion.Conexion;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -167,8 +166,13 @@ public class login extends javax.swing.JFrame {
         String con = jtfContra.getText();
         String us = jtfUsuario.getText();
         if(us.equalsIgnoreCase("a") && con.equals("a")){
-            mp.setVisible(true);
-        this.dispose();
+            if(Conexion.getConnection()!=null){
+                mp.setVisible(true);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(this,"No hay conexion a la Base de Datos","Error",JOptionPane.WARNING_MESSAGE);
+            }
+            
         mp.bienvenido(us);
         }else{
             JOptionPane.showMessageDialog(this,"Contraseña y/o usuario incorrecta","Error",JOptionPane.WARNING_MESSAGE);

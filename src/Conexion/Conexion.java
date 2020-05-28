@@ -1,3 +1,4 @@
+package Conexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,7 +23,6 @@ public class Conexion {
         String url = "jdbc:postgresql://localhost:5432/AMS";
         String usuario = "postgres";
         String contraseña = "1234";
-        
         try{
             Class.forName("org.postgresql.Driver");
             
@@ -54,47 +54,18 @@ public class Conexion {
         return null;
     }
     
-    public static void Ejecutar(String consulta){
-    Connection con = getConnection();
-    Statement declara;
+    public static Boolean Ejecutar(String consulta){
+        boolean b = true;
+        Connection con = getConnection();
+        Statement declara;
         try {
             declara=con.createStatement();
             declara.executeQuery(consulta);
-            
+            return b;
         } catch (SQLException e) {
-            if (e.getMessage().equals("La instrucción no devolvió un conjunto de resultados.")) {
-                JOptionPane.showMessageDialog(null,
-                    "Se actualizo el base de datos correctamente");
-               
-            }else{
-            JOptionPane.showMessageDialog(null,"Producto con ese nombre ya existe " ,
-                    "ERROR",JOptionPane.ERROR_MESSAGE);
-                    //System.out.println(e);
-            }
-             
+            System.out.print("Error: " + e);
         }
-        
-    }
-        public static void Eliminar_Producto(String consulta){
-    Connection con = getConnection();
-    Statement declara;
-        try {
-            declara=con.createStatement();
-            declara.executeQuery(consulta);
-            
-        } catch (SQLException e) {
-            if (e.getMessage().equals("La instrucción no devolvió un conjunto de resultados.")) {
-                JOptionPane.showMessageDialog(null,
-                    "Se actualizo el base de datos correctamente");
-               
-            }else{
-            JOptionPane.showMessageDialog(null,"Producto siendo usado en pedidos" ,
-                    "ERROR",JOptionPane.ERROR_MESSAGE);
-                    //System.out.println(e);
-            }
-             
-        }
-        
+        return b;
     }
     
 }

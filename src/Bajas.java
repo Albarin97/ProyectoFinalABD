@@ -1,6 +1,6 @@
 
 import javax.swing.JOptionPane;
-
+import Conexion.Conexion;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -304,10 +304,12 @@ public class Bajas extends javax.swing.JFrame {
     private void btnRealizarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarBajaActionPerformed
         
         if(!jtfID.getText().equalsIgnoreCase("") ){
-            
             id = jtfID.getText();
-            
-            JOptionPane.showMessageDialog(this,"Baja correcta","Aviso",JOptionPane.WARNING_MESSAGE);
+            if(Conexion.Ejecutar("DELETE FROM public.productos WHERE idproducto='"+id+"';")){
+                JOptionPane.showMessageDialog(this,"Baja correcta","Aviso",JOptionPane.WARNING_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this,"Hubo un error al Eliminar","Error",JOptionPane.OK_OPTION);
+            }
         }else{
             JOptionPane.showMessageDialog(this,"Debes llenar el campo ID","Error",JOptionPane.OK_OPTION);
         }

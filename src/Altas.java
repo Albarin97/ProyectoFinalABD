@@ -1,5 +1,6 @@
 
 import javax.swing.JOptionPane;
+import Conexion.Conexion;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -255,8 +256,13 @@ public class Altas extends javax.swing.JFrame {
             cantidad = Integer.parseInt(spnCantidad.getValue()+"");
             precio = Integer.parseInt(spnPrecio.getValue()+"");
             
+            if(Conexion.Ejecutar("INSERT INTO public.productos(idproducto, marca, modelo, tipo, precio, cantidad)VALUES (03, '"+marca+"', '"+modelo+"', '"+tipo+"', "+precio+", "+cantidad+");")){
+                JOptionPane.showMessageDialog(this,"Alta Realizada","Aviso",JOptionPane.WARNING_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this,"Hubo un error en la Alta","Error",JOptionPane.OK_OPTION);
+            }
             
-            JOptionPane.showMessageDialog(this,"Alta Realizada","Aviso",JOptionPane.WARNING_MESSAGE);
+            
         }else{
             JOptionPane.showMessageDialog(this,"Faltan Datos","Error",JOptionPane.OK_OPTION);
         }
