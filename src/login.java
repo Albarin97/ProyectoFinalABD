@@ -210,41 +210,6 @@ public class login extends javax.swing.JFrame {
             }
         });
         
-        String url = "jdbc:postgresql://localhost:5432/AMS";
-        String usuario = "postgres";
-        String contraseña = "1234";
-        try{
-            try {
-                Class.forName("org.postgresql.Driver");
-            } catch (ClassNotFoundException ex) {
-                System.out.println("Error al registrar el driver de PostgreSQL: " + ex);
-            }
-            Connection conexion = DriverManager.getConnection(url, usuario, contraseña);
-            if(conexion != null){
-                System.out.print("Conectado");
-            }else{
-                System.out.print("No Conectado");
-            }
-            java.sql.Statement st = conexion.createStatement();
-            String sql = "SELECT * FROM productos;";
-            ResultSet rs = st.executeQuery(sql);
-            while(rs.next()){
-                String id = rs.getString("idproducto");
-                String marca = rs.getString("marca");
-                String modelo = rs.getString("modelo");
-                String tipo = rs.getString("tipo");
-                String precio = rs.getString("precio");
-                String cantidad = rs.getString("cantidad");
-                System.out.println(id+marca+modelo+tipo+precio+cantidad);
-            }
-            rs.close();
-            st.close();
-            conexion.close();
-
-        }catch(Exception e){
-            System.out.println("Error Conexion: "+e);
-        }
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
