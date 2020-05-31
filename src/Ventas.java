@@ -302,10 +302,11 @@ public class Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuAltaActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        jcbMarca.setSelectedIndex(0);
-        jtfTelefono.setText("");
-        jcbTipo.setSelectedIndex(0);
+        jtfIdProducto.setText("");
+        jtfCliente.setText("");
         spnCantidad.setValue(0);
+        jtfTelefono.setText("");
+        jtfDireccion.setText("");
         spnPrecio.setValue(0);
     }//GEN-LAST:event_btnResetActionPerformed
 
