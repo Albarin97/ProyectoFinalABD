@@ -1,6 +1,10 @@
 
 import javax.swing.JOptionPane;
 import Conexion.Conexion;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,8 +20,8 @@ public class Ventas extends javax.swing.JFrame {
     
     //Variables
     
-    String marca, modelo, tipo;
-    int precio, cantidad;
+    String idProducto, cliente, telefono, direccion, precio;
+    int cantidad;
 
     /**
      * Creates new form Altas
@@ -40,16 +44,14 @@ public class Ventas extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jtfTelefono = new javax.swing.JTextField();
-        spnPrecio = new javax.swing.JSpinner();
         spnCantidad = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
         jtfIdProducto = new javax.swing.JTextField();
         jtfCliente = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jtfDireccion = new javax.swing.JTextField();
+        jtfTelefono = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnRealizarAlta = new javax.swing.JButton();
         btnMenuAlta = new javax.swing.JButton();
@@ -77,17 +79,9 @@ public class Ventas extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Telefono");
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Precio");
-
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Cantidad");
-
-        jtfTelefono.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-
-        spnPrecio.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
         spnCantidad.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
 
@@ -110,6 +104,8 @@ public class Ventas extends javax.swing.JFrame {
             }
         });
 
+        jtfTelefono.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -126,10 +122,6 @@ public class Ventas extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jtfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(spnPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -139,9 +131,9 @@ public class Ventas extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jtfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(122, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -154,12 +146,12 @@ public class Ventas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(22, 22, 22))
+                .addGap(63, 63, 63))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jtfIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,12 +159,8 @@ public class Ventas extends javax.swing.JFrame {
                 .addComponent(jtfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(spnCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(59, 59, 59)
                 .addComponent(jtfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(spnPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -247,8 +235,8 @@ public class Ventas extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRealizarAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,7 +253,9 @@ public class Ventas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 16, Short.MAX_VALUE))
         );
 
         pack();
@@ -273,14 +263,28 @@ public class Ventas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRealizarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarAltaActionPerformed
-     /*   if(jcbMarca.getSelectedIndex()!=0 && jcbTipo.getSelectedIndex()!=0 && !jtfTelefono.getText().equalsIgnoreCase("") && !spnCantidad.getValue().equals(0) && !spnPrecio.getValue().equals(0)){
-            marca = jcbMarca.getSelectedItem()+"";
-            tipo = jcbTipo.getSelectedItem()+"";
-            modelo = jtfTelefono.getText();
+        if(!jtfIdProducto.getText().equalsIgnoreCase("") && !jtfCliente.getText().equalsIgnoreCase("") && !spnCantidad.getValue().equals(0) && !jtfTelefono.getText().equalsIgnoreCase("") && !jtfDireccion.getText().equalsIgnoreCase("")){
+            idProducto = jtfIdProducto.getText();
+            cliente = jtfCliente.getText();
             cantidad = Integer.parseInt(spnCantidad.getValue()+"");
-            precio = Integer.parseInt(spnPrecio.getValue()+"");
+            telefono = jtfTelefono.getText();
+            direccion = jtfDireccion.getText();
             
-            if(Conexion.Ejecutar("INSERT INTO public.productos(idproducto, marca, modelo, tipo, precio, cantidad)VALUES (03, '"+marca+"', '"+modelo+"', '"+tipo+"', "+precio+", "+cantidad+");")){
+            String sql = "SELECT * FROM productos WHERE idproducto='"+idProducto+"';";
+            ResultSet rs = Conexion.Consulta(sql);
+            try {
+                while(rs.next()){
+                    try {
+                        precio = rs.getString("precio");
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            String sqlIns = "INSERT INTO public.ventas(idventa, idproducto, cliente, cantidad, costo, telefono, direccion) VALUES (2, '"+idProducto+"', '"+cliente+"', "+cantidad+", "+Integer.parseInt(precio)*cantidad+", '"+telefono+"', '"+direccion+"');";
+            if(Conexion.Ejecutar(sqlIns)){
                 JOptionPane.showMessageDialog(this,"Alta Realizada","Aviso",JOptionPane.WARNING_MESSAGE);
             }else{
                 JOptionPane.showMessageDialog(this,"Hubo un error en la Alta","Error",JOptionPane.OK_OPTION);
@@ -292,7 +296,7 @@ public class Ventas extends javax.swing.JFrame {
         }
         
         
-        */
+        
     }//GEN-LAST:event_btnRealizarAltaActionPerformed
 
     private void btnMenuAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuAltaActionPerformed
@@ -307,7 +311,6 @@ public class Ventas extends javax.swing.JFrame {
         spnCantidad.setValue(0);
         jtfTelefono.setText("");
         jtfDireccion.setText("");
-        spnPrecio.setValue(0);
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void jtfDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDireccionActionPerformed
@@ -360,7 +363,6 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jtfCliente;
@@ -368,6 +370,5 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JTextField jtfIdProducto;
     private javax.swing.JTextField jtfTelefono;
     private javax.swing.JSpinner spnCantidad;
-    private javax.swing.JSpinner spnPrecio;
     // End of variables declaration//GEN-END:variables
 }

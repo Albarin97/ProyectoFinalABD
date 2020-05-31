@@ -83,10 +83,10 @@ public class Consulta2 extends javax.swing.JFrame {
         jtConsulta2.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jtConsulta2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID Venta", "Marca", "Modelo", "Tipo", "Cliente", "Cantidad Comprada"
+                "ID Venta", "Marca", "Modelo", "Tipo", "Cliente", "Cantidad Comprada", "Coste"
             }
         ));
         jScrollPane2.setViewportView(jtConsulta2);
@@ -132,7 +132,7 @@ public class Consulta2 extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnBajaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMenuAlta, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                        .addComponent(btnMenuAlta, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
