@@ -422,7 +422,8 @@ public class Bajas extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         id = jtfID.getText();
         if(!id.equalsIgnoreCase("") && jcbMarca.getSelectedIndex()!=0 && jcbTipo.getSelectedIndex()!=0 && !jtfModelo.getText().equalsIgnoreCase("") && !spnCantidad.getValue().equals(0) && !spnPrecio.getValue().equals(0)){
-            
+            String sql = "UPDATE public.productos SET marca='"+jcbMarca.getSelectedItem()+"', modelo='"+jtfModelo.getText()+"', tipo='"+jcbTipo.getSelectedItem()+"', precio="+spnPrecio.getValue()+", cantidad="+spnCantidad.getValue()+" WHERE idproducto='"+jtfID.getText()+"';";
+            Conexion.Ejecutar(sql);
             JOptionPane.showMessageDialog(this,"Editando...","Aviso",JOptionPane.WARNING_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(this,"Faltan campos por llenar","Error",JOptionPane.OK_OPTION);
