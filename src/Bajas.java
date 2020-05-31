@@ -1,6 +1,10 @@
 
 import javax.swing.JOptionPane;
 import Conexion.Conexion;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -335,6 +339,22 @@ public class Bajas extends javax.swing.JFrame {
         if(!jtfID.getText().equalsIgnoreCase("") ){
             
             id = jtfID.getText();
+            String sql = "SELECT * FROM productos WHERE idproducto='"+id+"';";
+            ResultSet rs = Conexion.Consulta(sql);
+            try{
+                while(rs.next()){
+                String id = rs.getString("idproducto");
+                String marca = rs.getString("marca");
+                String modelo = rs.getString("modelo");
+                String tipo = rs.getString("tipo");
+                String precio = rs.getString("precio");
+                String cantidad = rs.getString("cantidad");
+                System.out.println(id+marca+modelo+tipo+precio+cantidad);
+                }
+            }catch(Exception e){
+                System.out.println("Error Consulta: "+e);
+            }
+            
             
             JOptionPane.showMessageDialog(this,"Buscando...","Aviso",JOptionPane.WARNING_MESSAGE);
         }else{
