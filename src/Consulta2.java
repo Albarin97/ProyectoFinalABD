@@ -41,7 +41,7 @@ public class Consulta2 extends javax.swing.JFrame {
         btnBajaBuscar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtConsulta2 = new javax.swing.JTable();
         btnMenuAlta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,9 +79,9 @@ public class Consulta2 extends javax.swing.JFrame {
 
         jScrollPane2.setBackground(new java.awt.Color(255, 87, 51));
 
-        jTable1.setBackground(new java.awt.Color(255, 87, 51));
-        jTable1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtConsulta2.setBackground(new java.awt.Color(255, 87, 51));
+        jtConsulta2.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jtConsulta2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
             },
@@ -89,7 +89,7 @@ public class Consulta2 extends javax.swing.JFrame {
                 "ID Venta", "Marca", "Modelo", "Tipo", "Cliente", "Cantidad Comprada"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(jtConsulta2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -234,7 +234,7 @@ public class Consulta2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtConsulta2;
     private javax.swing.JTextField jtfID;
     // End of variables declaration//GEN-END:variables
 }
