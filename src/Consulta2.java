@@ -1,5 +1,11 @@
 
+import java.awt.Component;
+import java.sql.ResultSet;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -177,13 +183,36 @@ public class Consulta2 extends javax.swing.JFrame {
     private void btnBajaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaBuscarActionPerformed
         if(!jtfID.getText().equalsIgnoreCase("")){
             id = jtfID.getText();
-            
+            verTabla(jtConsulta2, "SELECT * FROM ventas WHERE idproducto='"+id+"';");
             JOptionPane.showMessageDialog(this,"Buscando...","Aviso",JOptionPane.WARNING_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(this,"Debes llenar el campo ID","Error",JOptionPane.OK_OPTION);
+            verTabla(jtConsulta2, "SELECT * FROM ventas");
         }
     }//GEN-LAST:event_btnBajaBuscarActionPerformed
 
+        public void verTabla(JTable tabla,String com){
+        tabla.setDefaultRenderer(Object.class, new render());
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+        ResultSet res=Conexion.Conexion.Consulta(com);
+        try {
+            while(res.next()){
+                Vector v = new Vector();
+                v.add(res.getString(1));
+                v.add(res.getString(2));
+                v.add(res.getString(3));
+                v.add(res.getString(4));
+                v.add(res.getString(5));
+                v.add(res.getString(6));
+                v.add(res.getString(7));
+                modelo.addRow(v);
+                tabla.setModel(modelo);
+            }
+
+        } catch (Exception e) {
+        }
+    }
+    
     private void btnMenuAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuAltaActionPerformed
         MenuPrincipal mp = new MenuPrincipal();
         mp.setVisible(true);
@@ -237,4 +266,15 @@ public class Consulta2 extends javax.swing.JFrame {
     private javax.swing.JTable jtConsulta2;
     private javax.swing.JTextField jtfID;
     // End of variables declaration//GEN-END:variables
+}
+
+
+class render2 extends DefaultTableCellRenderer {
+
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value,
+            boolean isSelected, boolean hasFocus, int row, int column) {
+
+        return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column); //To change body of generated methods, choose Tools | Templates.
+    }
 }

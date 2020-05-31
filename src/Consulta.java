@@ -199,7 +199,6 @@ public class Consulta extends javax.swing.JFrame {
         ResultSet res=Conexion.Conexion.Consulta(com);
         try {
             while(res.next()){
-                System.out.print("Tabla: ");
                 Vector v = new Vector();
                 v.add(res.getString(1));
                 v.add(res.getString(2));
