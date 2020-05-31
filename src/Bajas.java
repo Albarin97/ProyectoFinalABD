@@ -350,11 +350,68 @@ public class Bajas extends javax.swing.JFrame {
                 String precio = rs.getString("precio");
                 String cantidad = rs.getString("cantidad");
                 System.out.println(id+marca+modelo+tipo+precio+cantidad);
+                jtfModelo.setText(modelo);
+                spnPrecio.setValue(Integer.parseInt(precio));
+                spnCantidad.setValue(Integer.parseInt(cantidad));
+                switch(marca){
+                    case "Italika":
+                        jcbMarca.setSelectedIndex(1);
+                        break;
+                    case "Suzuki":
+                        jcbMarca.setSelectedIndex(2);
+                        break;
+                    case "Yamaha":
+                        jcbMarca.setSelectedIndex(3);
+                        break;
+                    case "Honda":
+                        jcbMarca.setSelectedIndex(4);
+                        break;
+                    case "Bajaj":
+                        jcbMarca.setSelectedIndex(5);
+                        break;
+                    case "Ducati":
+                        jcbMarca.setSelectedIndex(6);
+                        break;
+                    case "BMW":
+                        jcbMarca.setSelectedIndex(7);
+                        break;
+                    case "Kawasaki":
+                        jcbMarca.setSelectedIndex(8);
+                        break;
+                    case "Harley-Davidson":
+                        jcbMarca.setSelectedIndex(9);
+                        break;
+                }//switch
+                switch(tipo){
+                    case "Doble Proposito":
+                        jcbTipo.setSelectedIndex(1);
+                        break;
+                    case "Deportiva":
+                        jcbTipo.setSelectedIndex(2);
+                        break;
+                    case "Turing":
+                        jcbTipo.setSelectedIndex(3);
+                        break;
+                    case "Scooter":
+                        jcbTipo.setSelectedIndex(4);
+                        break;
+                    case "Naked":
+                        jcbTipo.setSelectedIndex(5);
+                        break;
+                    case "Crucero":
+                        jcbTipo.setSelectedIndex(6);
+                        break;
+                    case "Enduro":
+                        jcbTipo.setSelectedIndex(7);
+                        break;
+                    case "Cafe Racer":
+                        jcbTipo.setSelectedIndex(8);
+                        break;
+                }//switch
                 }
             }catch(Exception e){
                 System.out.println("Error Consulta: "+e);
             }
-            
             
             JOptionPane.showMessageDialog(this,"Buscando...","Aviso",JOptionPane.WARNING_MESSAGE);
         }else{
