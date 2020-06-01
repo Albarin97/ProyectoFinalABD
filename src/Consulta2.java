@@ -183,10 +183,10 @@ public class Consulta2 extends javax.swing.JFrame {
     private void btnBajaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaBuscarActionPerformed
         if(!jtfID.getText().equalsIgnoreCase("")){
             id = jtfID.getText();
-            verTabla(jtConsulta2, "SELECT * FROM ventas WHERE idproducto='"+id+"';");
+            verTabla(jtConsulta2, "SELECT * FROM public.pedidos WHERE idventa='"+id+"';");
             JOptionPane.showMessageDialog(this,"Buscando...","Aviso",JOptionPane.WARNING_MESSAGE);
         }else{
-            verTabla(jtConsulta2, "SELECT * FROM ventas");
+            verTabla(jtConsulta2, "SELECT * FROM public.pedidos");
         }
     }//GEN-LAST:event_btnBajaBuscarActionPerformed
 
