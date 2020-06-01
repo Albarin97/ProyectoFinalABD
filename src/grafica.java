@@ -21,8 +21,8 @@ public class grafica {
     DefaultPieDataset data = new DefaultPieDataset();
     Vector v = new Vector();
     
-        public void obtener_info(){
-        ResultSet res=Conexion.Conexion.Consulta("SELECT SUM(cantidad), marca FROM productos GROUP BY marca;");
+        public void obtener_info(String str){
+        ResultSet res=Conexion.Conexion.Consulta("SELECT SUM(cantidad), "+str+" FROM productos GROUP BY "+str+";");
         try {
             while(res.next()){
                 data.setValue(res.getString(2).toString()+": "+ new Integer(res.getInt(1)), new Integer(res.getInt(1)));

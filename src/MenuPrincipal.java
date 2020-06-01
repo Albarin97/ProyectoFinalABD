@@ -306,9 +306,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ven.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVenderActionPerformed
-    grafica gra = new grafica();
+    
     private void btnGrafActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrafActionPerformed
-        gra.obtener_info();
+        Elegir el = new Elegir();
+        el.setVisible(true);
     }//GEN-LAST:event_btnGrafActionPerformed
 
     private void btnAlta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta2ActionPerformed
