@@ -38,6 +38,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnConsulta = new javax.swing.JButton();
         btnConsulta1 = new javax.swing.JButton();
         btnVender = new javax.swing.JButton();
+        btnGraf = new javax.swing.JButton();
+        btnAlta2 = new javax.swing.JButton();
         jlUsuario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -123,15 +125,39 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnGraf.setBackground(new java.awt.Color(199, 0, 57));
+        btnGraf.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnGraf.setText("Gráfica");
+        btnGraf.setBorder(null);
+        btnGraf.setBorderPainted(false);
+        btnGraf.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGraf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGrafActionPerformed(evt);
+            }
+        });
+
+        btnAlta2.setBackground(new java.awt.Color(199, 0, 57));
+        btnAlta2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnAlta2.setText("Portada");
+        btnAlta2.setBorder(null);
+        btnAlta2.setBorderPainted(false);
+        btnAlta2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAlta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlta2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(btnBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
@@ -139,11 +165,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(btnConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(btnAlta2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(154, 154, 154)
+                        .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGraf, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,9 +186,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(btnBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVender, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnGraf)
+                            .addComponent(btnAlta2))
+                        .addContainerGap())))
         );
 
         jlUsuario.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -267,6 +306,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ven.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVenderActionPerformed
+    grafica gra = new grafica();
+    private void btnGrafActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrafActionPerformed
+        gra.obtener_info();
+    }//GEN-LAST:event_btnGrafActionPerformed
+
+    private void btnAlta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlta2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,10 +356,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
+    private javax.swing.JButton btnAlta2;
     private javax.swing.JButton btnBaja;
     private javax.swing.JButton btnCambio;
     private javax.swing.JButton btnConsulta;
     private javax.swing.JButton btnConsulta1;
+    private javax.swing.JButton btnGraf;
     private javax.swing.JButton btnVender;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
