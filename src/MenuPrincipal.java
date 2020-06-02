@@ -308,12 +308,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVenderActionPerformed
     
     private void btnGrafActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrafActionPerformed
-        Elegir el = new Elegir();
-        el.setVisible(true);
+        new Elegir().setVisible(true);
     }//GEN-LAST:event_btnGrafActionPerformed
 
     private void btnAlta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta2ActionPerformed
-        // TODO add your handling code here:
+        new Portada().setVisible(true);
     }//GEN-LAST:event_btnAlta2ActionPerformed
 
     /**

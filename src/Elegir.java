@@ -32,7 +32,7 @@ public class Elegir extends javax.swing.JFrame {
         btnPorMarca = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Elige Tipo Gráfica");
+        setTitle("Elige Gráfica");
 
         jPanel1.setBackground(new java.awt.Color(255, 195, 0));
 

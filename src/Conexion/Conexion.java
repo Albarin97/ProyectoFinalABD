@@ -63,6 +63,7 @@ public class Conexion {
             declara.executeQuery(consulta);
             return b;
         } catch (SQLException e) {
+            b=false;
             System.out.print("Error: " + e);
         }
         return b;
