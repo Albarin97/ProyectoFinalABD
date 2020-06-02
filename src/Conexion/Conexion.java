@@ -21,8 +21,8 @@ public class Conexion {
     public static Connection con = null;
     public static Connection getConnection(){
         String url = "jdbc:postgresql://localhost:5432/AMS";
-        String usuario = "postgres";
-        String contraseña = "1234";
+        String usuario = "albar";
+        String contraseña = "albar";
         try{
             Class.forName("org.postgresql.Driver");
             

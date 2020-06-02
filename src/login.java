@@ -165,7 +165,7 @@ public class login extends javax.swing.JFrame {
         MenuPrincipal mp = new MenuPrincipal();
         String con = jtfContra.getText();
         String us = jtfUsuario.getText();
-        if(us.equalsIgnoreCase("a") && con.equals("a")){
+        if(us.equalsIgnoreCase("albar") && con.equals("albar")){
             if(Conexion.getConnection()!=null){
                 mp.setVisible(true);
                 this.dispose();
