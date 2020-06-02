@@ -63,8 +63,16 @@ public class Conexion {
             declara.executeQuery(consulta);
             return b;
         } catch (SQLException e) {
-            b=false;
             System.out.print("Error: " + e);
+            if (e.getMessage().equals("La instrucción no devolvió un conjunto de resultados.")) {
+                JOptionPane.showMessageDialog(null,
+                    "Se actualizo el base de datos correctamente");
+
+            }else if (!e.getMessage().equals("La consulta no retornó ningún resultado.")){
+            JOptionPane.showMessageDialog(null,"El Producto siendo usado en pedidos" ,
+                    "ERROR",JOptionPane.ERROR_MESSAGE);
+                    //System.out.println(e);
+            }
         }
         return b;
     }

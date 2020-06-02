@@ -281,12 +281,32 @@ public class Ventas extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
             } 
-            String sqlIns = "INSERT INTO public.ventas(idventa, idproducto, cliente, cantidad, costo, telefono, direccion) VALUES (2, '"+idProducto+"', '"+cliente+"', "+cantidad+", "+Integer.parseInt(precio)*cantidad+", '"+telefono+"', '"+direccion+"');";
-            if(Conexion.Ejecutar(sqlIns)){
-                JOptionPane.showMessageDialog(this,"Alta Realizada","Aviso",JOptionPane.WARNING_MESSAGE);
-            }else{
-                JOptionPane.showMessageDialog(this,"Hubo un error en la Alta","Error",JOptionPane.OK_OPTION);
+            try {
+                ResultSet res = Conexion.Consulta("SELECT public.registros2()");
+                res.next();
+                int cont =  res.getInt(1);
+                if(cont==0){
+                    String sqlIns = "INSERT INTO public.ventas(idventa, idproducto, cliente, cantidad, costo, telefono, direccion, contador) VALUES ('v1', '" + idProducto + "', '" + cliente + "', " + cantidad + ", " + Integer.parseInt(precio) * cantidad + ", '" + telefono + "', '" + direccion + "', 1);";
+                    if (Conexion.Ejecutar(sqlIns)) {
+                        JOptionPane.showMessageDialog(this, "Alta Realizada", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Hubo un error en la Alta", "Error", JOptionPane.OK_OPTION);
+                    }
+                }else{
+                    res = Conexion.Consulta("SELECT public.obtenermax2()");
+                    res.next();
+                    cont = res.getInt(1);
+                    String sqlIns = "INSERT INTO public.ventas(idventa, idproducto, cliente, cantidad, costo, telefono, direccion, contador) VALUES ('v"+cont+"', '" + idProducto + "', '" + cliente + "', " + cantidad + ", " + Integer.parseInt(precio) * cantidad + ", '" + telefono + "', '" + direccion + "', "+cont+");";
+                    if (Conexion.Ejecutar(sqlIns)) {
+                        JOptionPane.showMessageDialog(this, "Alta Realizada", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Hubo un error en la Alta", "Error", JOptionPane.OK_OPTION);
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Ventas.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
             
             
         }else{

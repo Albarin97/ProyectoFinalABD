@@ -1,6 +1,10 @@
 
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
 import Conexion.Conexion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -256,11 +260,34 @@ public class Altas extends javax.swing.JFrame {
             cantidad = Integer.parseInt(spnCantidad.getValue()+"");
             precio = Integer.parseInt(spnPrecio.getValue()+"");
             
-            if(Conexion.Ejecutar("INSERT INTO public.productos(idproducto, marca, modelo, tipo, precio, cantidad)VALUES (04, '"+marca+"', '"+modelo+"', '"+tipo+"', "+precio+", "+cantidad+");")){
-                JOptionPane.showMessageDialog(this,"Alta Realizada","Aviso",JOptionPane.WARNING_MESSAGE);
-            }else{
-                JOptionPane.showMessageDialog(this,"Hubo un error en la Alta","Error",JOptionPane.OK_OPTION);
+            //Generar ID
+            
+            try {
+                ResultSet res = Conexion.Consulta("SELECT public.registros()");
+                res.next();
+                int cont =  res.getInt(1);
+                if(cont==0){
+                    if (Conexion.Ejecutar("INSERT INTO public.productos(idproducto, marca, modelo, tipo, precio, cantidad, contador)VALUES ('ams1', '" + marca + "', '" + modelo + "', '" + tipo + "', " + precio + ", " + cantidad + ", 1);")) {
+                        JOptionPane.showMessageDialog(this, "Alta Realizada", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Hubo un error en la Alta", "Error", JOptionPane.OK_OPTION);
+                    }
+                }else{
+                    res = Conexion.Consulta("SELECT public.obtenermax()");
+                    res.next();
+                    cont = res.getInt(1);
+                    if (Conexion.Ejecutar("INSERT INTO public.productos(idproducto, marca, modelo, tipo, precio, cantidad, contador)VALUES ('ams"+cont+"', '" + marca + "', '" + modelo + "', '" + tipo + "', " + precio + ", " + cantidad + ","+cont+");")) {
+                        JOptionPane.showMessageDialog(this, "Alta Realizada", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Hubo un error en la Alta", "Error", JOptionPane.OK_OPTION);
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Altas.class.getName()).log(Level.SEVERE, null, ex);
             }
+                
+            
+            
             
             
         }else{
